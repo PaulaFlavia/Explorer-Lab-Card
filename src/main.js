@@ -7,9 +7,15 @@ const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img")
 
 function setCardType(type) {
   const colors = {
-    visa: ["#436D99", "#2D57F2"],
+    amex: ["#2AE8C6", "#1E9AFB"],
+    diners: ["#1B16FF", "#C3129C"],
+    discover: ["#FFFFFF", "#1E9AFB"],
+    elo: ["#F73A67", "#FFC632"],
+    hipercard: ["#FF1733", "#FFFFFF"],
+    jcb: ["#FF1733", "#1B16FF"],
+    maestro: ["#FF1733", "#FFA724"],
     mastercard: ["#DF6F29", "#C69347"],
-    rocketseat: ["#0D6F5D", "#C3129C"],
+    visa: ["#436D99", "#2D57F2"],
     default: ["black", "gray"],
   }
 
@@ -56,6 +62,42 @@ const cardNumberPattern = {
       mask: "0000 0000 0000 0000",
       regex: /(^5[1-5]\d{0,2}|^22[2-9]\d|^2[3-7]\d{0,2})\d{0,12}/,
       cardtype: "mastercard",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^3[47]\d{13,14}/,
+      cardtype: "amex",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^(?:6011|65\d{0-2}|64[4-9]\d?)\d{0,12}/,
+      cardtype: "discover",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^3(?:0([0-5]|9)|[689]\d?)\d{0,11}/,
+      cardtype: "diners",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^(?:2131|1800)\d{0,11}/,
+      cardtype: "jcb",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^(606282\d{10}(\d{3})?)|(3841\d{15})$/,
+      cardtype: "hipercard",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^(?:5[0678]\d{0,2}|6304|67\d{0,2})\d{0,12}/,
+      cardtype: "maestro",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex:
+        /^((((636368)|(438935)|(504175)|(451416)|(636297))d{0,10})|((5067)|(4576)|(4011))d{0,12})$/,
+      cardtype: "elo",
     },
 
     {
